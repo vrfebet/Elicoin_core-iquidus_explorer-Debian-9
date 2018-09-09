@@ -8,7 +8,7 @@
 # Description:       foo
 ### END INIT INFO
 
-SCRIPT=elicoind\ \ -daemon\ -txindex  
+SCRIPT=elicoind\ \ -daemon\ -txindex
 RUNAS=root
 
 PIDFILE=/root/.elicoin/elicoin.pid
