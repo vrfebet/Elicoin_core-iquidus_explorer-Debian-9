@@ -234,7 +234,6 @@ update-rc.d "explorer" defaults
 # daemon - start|stop|restart|uninstall
 /etc/init.d/explorer start
 
-
 # end
 
 -------------------------------
