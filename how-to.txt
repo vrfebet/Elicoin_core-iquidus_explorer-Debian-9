@@ -21,7 +21,6 @@ apt install software-properties-common libqt5gui5 libqt5core5a libqt5dbus5 qttoo
 nano /etc/apt/sources.list.d/deeponionAdd.list
 #copy these two lines and Add into (right click to terminal window):
        deb http://ppa.launchpad.net/bitcoin/bitcoin/ubuntu xenial main
-       deb http://ftp.de.debian.org/debian jessie-backports main
 
 mkdir /root/Downloads
 # Now go to Bitcoin repository key (ref) copy the text( start and end with ----- ), paste in the file BTC.gpg in ~/Downloads
@@ -80,19 +79,22 @@ apt install gcc g++ make
 
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-apt update && apt install yarn
+apt update && apt install yarn=1.12.3-1
 
 node --version
 npm --version
 yarn --version
 
-# mongo ! ignore the alert message
+# mongo 
+apt install dirmngr
 apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
 echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main" | tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 apt update
-# not use -y ! but then enter yes
-apt install  mongodb-org
+
+apt-get install -y mongodb-org=4.0.1 mongodb-org-server=4.0.1 mongodb-org-shell=4.0.1 mongodb-org-mongos=4.0.1 mongodb-org-tools=4.0.1
+
+mongod --version
 
 # fix - will not be updated
 echo "mongodb-org hold" | dpkg --set-selections
@@ -118,6 +120,8 @@ mongo
 systemctl enable mongod.service
 
 # npm
+apt install libkrb5-dev
+
 git clone https://github.com/iquidus/explorer explorer
 cd explorer && npm install --production
 cp ./settings.json.template ./settings.json
