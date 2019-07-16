@@ -135,6 +135,7 @@ screen
 #(press spacebar)
 
 npm start
+# exit screen (Ctrl+a Ctrl+d)
 npm stop
 
 # *) edit /root/explorer/lib/explorer.js Line 341 (use winscp)
@@ -192,6 +193,10 @@ npm stop
 
 # save
 
+#go back to screen 
+screen -r
+#(eventually: screen -r [session number])
+
 npm start
 
 #(press Ctrl+a, Ctrl+d) quit this screen
@@ -211,6 +216,7 @@ crontab -e
 */1 * * * * cd /<path>/<to>/explorer && /usr/bin/nodejs scripts/sync.js index update > /dev/null 2>&1
 
 # after initial manual db synchronization, it is possible to delete the screen for it
+screen -X -S [session # you want to kill] quit
 
 # install watch dog for explorer
 npm install forever -g
