@@ -19,7 +19,7 @@ apt install libqrencode-dev libminiupnpc-dev libevent-dev libcap-dev libseccomp-
 apt install software-properties-common libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
 
 nano /etc/apt/sources.list.d/deeponionAdd.list
-#copy these two lines and Add into (right click to terminal window):
+#copy this line and Add into (right click to terminal window):
        deb http://ppa.launchpad.net/bitcoin/bitcoin/ubuntu xenial main
 
 mkdir /root/Downloads
